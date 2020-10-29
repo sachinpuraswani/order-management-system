@@ -1,5 +1,7 @@
 # order-management-system
+
 Order Management System
+
 Order Management System is an application to track the details of orders placed by customers.
 It is implemented with Core Java Features with JDBC and JUnit 4. It is a console based java application that provides functionalities such as
 customer management, orders management and stock management.
@@ -61,14 +63,30 @@ customer management, orders management and stock management.
     
   Service Layer- A Service class/interface provides a way for users to
   interact with the functionalities of the application.
+  
+  
     1. CustomerService
+    
+    
     2. PurchaseOrderService
+    
+    
     3. OrderItemsService
+    
+    
     4. StockItemService
+    
+    
   Util - Contains the utility classes such as database connections, enums,
   etc.
+  
+  
     1. ConnectionManager
+    
+    
     2. OrderStatus(Enum)
+    
+    
   TestOrderManagementSystem Class - For using the system functionalities.
   Also the logs are created and saved under 'logs/' directory.
   
