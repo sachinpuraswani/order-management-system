@@ -25,18 +25,40 @@ customer management, orders management and stock management.
 
 
 #Application Structure
+
+
   Model Layer- Model classes defines the class models.
+  
+  
     1. Customer
+    
+    
     2. PurchaseOrder
+    
+    
     3. OrderItems
+   
+   
     4. StockItem
+    
+    
   Data Access Object(DAO) Layer- Dao classes are used to isolate business
   layer(logic) from database layer. It provides an abstract interface to a
   database.
+  
+  
     1. CustomerDao
+    
+    
     2. PurchaseOrderDao
+    
+    
     3. OrderItemsDao
+    
+    
     4. StockItemDao
+    
+    
   Service Layer- A Service class/interface provides a way for users to
   interact with the functionalities of the application.
     1. CustomerService
