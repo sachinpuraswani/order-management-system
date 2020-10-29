@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-10-29T07:49:09.595356700Z</date>
+  <millis>1603957749595</millis>
+  <nanos>356700</nanos>
+  <sequence>0</sequence>
+  <logger>JavaMiniProject.TestOrderManagementSystem</logger>
+  <level>INFO</level>
+  <class>JavaMiniProject.TestOrderManagementSystem</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Welcome to Order Management System...!</message>
+</record>

@@ -1,0 +1,15 @@
+*** Invoice for Purchase Order Number: 1003 *** 
+
+Customer Id: 2 
+Customer Name: Samarth 
+Order Date: 2020-11-02 
+Ship Date: 2020-11-06 
+
+*** Order Details *** 
+
+Item Name: Chicken 
+Item Price: 180.0 
+No. of Items: 1 
+SubTotal: 180.0 
+
+Total: 180.0

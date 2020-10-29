@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-10-29T07:49:26.719111100Z</date>
+  <millis>1603957766719</millis>
+  <nanos>111100</nanos>
+  <sequence>1</sequence>
+  <logger>JavaMiniProject.dao.CustomerDao</logger>
+  <level>INFO</level>
+  <class>JavaMiniProject.dao.CustomerDao</class>
+  <method>addCustomer</method>
+  <thread>1</thread>
+  <message>
+Customer added successfully...! 
+Customer details : JavaMiniProject.model.Customer@1349883</message>
+</record>

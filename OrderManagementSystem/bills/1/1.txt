@@ -1,0 +1,15 @@
+*** Invoice for Purchase Order Number: 1 *** 
+
+Customer Id: 1 
+Customer Name: Sachin 
+Order Date: 2020-09-09 
+Ship Date: 2020-09-11 
+
+*** Order Details *** 
+
+Item Name: Pencil 
+Item Price: 5.0 
+No. of Items: 5 
+SubTotal: 25.0 
+
+Total: 25.0

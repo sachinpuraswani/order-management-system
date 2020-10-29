@@ -1,0 +1,15 @@
+*** Invoice for Purchase Order Number: 1002 *** 
+
+Customer Id: 1 
+Customer Name: Prashant 
+Order Date: 2020-10-09 
+Ship Date: 2020-10-11 
+
+*** Order Details *** 
+
+Item Name: Milk 
+Item Price: 25.0 
+No. of Items: 4 
+SubTotal: 100.0 
+
+Total: 100.0

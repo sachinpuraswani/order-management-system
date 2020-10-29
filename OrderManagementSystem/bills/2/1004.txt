@@ -1,0 +1,15 @@
+*** Invoice for Purchase Order Number: 1004 *** 
+
+Customer Id: 2 
+Customer Name: Samarth 
+Order Date: 2020-11-05 
+Ship Date: 2020-11-07 
+
+*** Order Details *** 
+
+Item Name: Milk 
+Item Price: 25.0 
+No. of Items: 3 
+SubTotal: 75.0 
+
+Total: 75.0

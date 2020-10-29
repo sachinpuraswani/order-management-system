@@ -1,0 +1,123 @@
+Database Setup:-
+
+CREATE DATABASE order_management_db;
+
+USE order_management_db;
+
+CREATE TABLE Customer
+(
+  CustomerId INT AUTO_INCREMENT,
+  Name VARCHAR(100) NOT NULL,
+  HomePhone BIGINT(10),
+  CellPhone BIGINT(10),
+  WorkPhone BIGINT(10),
+  Street VARCHAR(50) NOT NULL,
+  City VARCHAR(50) NOT NULL,
+  State VARCHAR(50) NOT NULL,
+  Zip BIGINT(10) NOT NULL,
+  PRIMARY KEY (CustomerId)
+);
+
+ALTER TABLE Customer AUTO_INCREMENT = 1;
+
+CREATE TABLE PurchaseOrder
+(
+  PONumber INT AUTO_INCREMENT,
+  CustomerId INT NOT NULL,
+  OrderDate DATE NOT NULL,
+  ShipDate DATE NOT NULL,
+  Status INT NOT NULL,
+  PRIMARY KEY (PONumber),
+  FOREIGN KEY (CustomerId) REFERENCES Customer(CustomerId) ON DELETE CASCADE
+);
+
+ALTER TABLE PurchaseOrder AUTO_INCREMENT = 1001;
+
+CREATE TABLE StockItem
+(
+  ItemNumber INT AUTO_INCREMENT,
+  ItemName VARCHAR(50) NOT NULL,
+  ItemPrice DOUBLE NOT NULL,
+  QtyInStock INT NOT NULL,
+  PRIMARY KEY (ItemNumber)
+);
+
+ALTER TABLE StockItem AUTO_INCREMENT = 51;
+
+CREATE TABLE OrderItems
+(
+  PONumber INT NOT NULL,  
+  ItemNumber INT NOT NULL,
+  NoOfItems INT NOT NULL,
+  FOREIGN KEY (PONumber) REFERENCES PurchaseOrder(PONumber) ON DELETE CASCADE,
+  FOREIGN KEY (ItemNumber) REFERENCES StockItem(ItemNumber) ON DELETE CASCADE
+);
+
+===============================================================================================================================
+
+Queries used in variuos functionalities of the Order Management System:-
+
+1. Add new Customer 
+INSERT INTO Customer values("Prashant",98765432,7057330039,9876543210,"Karvenagar","Pune","Maharashtra",411052);
+
+2. Add new Purchase order
+INSERT INTO PurchaseOrder values(1001,1,'2020-10-8','2020-10-9',0);
+INSERT INTO OrderItems values(1001,51,2);
+INSERT INTO OrderItems values(1001,52,1);
+
+3. Add new stock Item
+INSERT INTO StockItem values(51,"Milk",25,10);
+INSERT INTO StockItem values(52,"Chicken",180,7);
+
+4. Fetch customer based on Id
+SELECT * from Customer where CustomerId=2;
+
+5. Fetch orders placed by specific customers
+SELECT * from PurchaseOrder where CustomerId=2;
+
+6. Fetch orders placed for specific duration
+	a. Fetch all orders placed between from and to date inclusive of both date
+	SELECT * from PurchaseOrder where OrderDate between '2020-10-8' and '2020-11-8';
+
+	b. Fetch all the orders placed for given date
+	SELECT * from PurchaseOrder where OrderDate='2020-10-8';
+
+7. Update order status to shipped and set ship date based on order id
+UPDATE PurchaseOrder SET ShipDate='2020-10-12', Status=1 where PONumber=1001;
+
+8. Fetch delayed orders(As stated, orders which are not shipped within 4 days from the ordered date are considered as delayed orders)
+SELECT * from PurchaseOrder where DATEDIFF(ShipDate, OrderDate)>=4;
+
+9. Fetch all stock items
+SELECT * from StockItem;
+
+10. Find month-wise total orders shipped
+SELECT count(PONumber) as Order_Count,month(ShipDate) as Month,year(ShipDate) as Year from PurchaseOrder where Status=1 GROUP BY Month,Year; 
+
+11. Find total amount collected based on months
+SELECT sum(o.NoOfItems*s.ItemPrice) as Amount_Collected,month(p.ShipDate) as Month,year(p.ShipDate) as Year from OrderItems o,StockItem s,PurchaseOrder p where p.PONumber=o.PONumber and o.ItemNumber=s.ItemNumber GROUP BY Month,Year;
+
+12. Find the customer who has made maximum orders
+SELECT CustomerId,count(PONumber) as Orders_Count from PurchaseOrder GROUP BY CustomerId ORDER BY Orders_Count desc limit 1;
+
+
+Additional queries:-
+
+Delete a customer based on customer id--
+DELETE from Customer where CustomerId=1;
+
+Get all Order Items based on Purchase Order Number--
+SELECT * from OrderItems where PONumber=1001;
+
+Delete a Purchase Order--
+DELETE from PurchaseOrder where PONumber=1001;
+
+Get Stock Item based on Item Number--
+SELECT * from StockItem where ItemNumber=51;
+
+Update Stock Quantity after placing a new order/Add more Stock Quantity--
+UPDATE StockItem SET QtyInStock=7 where ItemNumber=51;
+
+Delete StockItem based on Item Number--
+DELETE from StockItem where ItemNumber=51;
+
